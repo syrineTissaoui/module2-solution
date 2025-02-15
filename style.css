@@ -1,47 +1,81 @@
-  
-.outer-box {
-    width: 300px;
-    height: 300px;
-    margin: 40px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    border: 5px solid #000;
-    background-color: #afacac;
-    
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: stretch;
-
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.inner-box {
-  
-  border: 5px solid #000;
-  background-color: lightcoral;
-  padding: 10px; 
-  width: 77px;
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
 }
-.inner-box-2 {
-  
-  border: 5px solid #000;
-  background-color: rgb(240, 204, 128);
-  padding: 10px; 
-  width: 77px;
+
+h1 {
+    margin-bottom: 20px;
 }
-.inner-box-3 {
-  
-  border: 5px solid #000;
-  background-color: rgb(152, 38, 38);
-  padding: 10px; 
-  width: 77px;
+
+.container {
+    width: 100%;
+    margin: 0 auto;
 }
-.text{
-    padding: 8px;
+
+/* Section Styles */
+.card {
+    background-color: #ddd;
+    border: 1px solid black;
+    padding: 50px 20px 20px; /* Extra padding to push text down */
+    position: relative;
+    text-align: left;
 }
-.text1{
-  color: aliceblue;
+
+/* Section Title Region */
+.card h2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ff9999; /* Default title color */
+    color: black;
+    padding: 5px 10px;
+    margin: 0;
+    border: 1px solid black;
 }
-.div{
-    direction:ltr;display:inline-block;vertical-align:top;
+
+/* Unique Colors for Titles */
+.card:nth-child(1) h2 { background-color: #f4a7a7; } /* Chicken */
+.card:nth-child(2) h2 { background-color: #d9534f; color: white; } /* Beef */
+.card:nth-child(3) h2 { background-color: #f0ad4e; } /* Sushi */
+
+/* Desktop View: 3 Equal Sections in One Row */
+@media (min-width: 992px) {
+    .container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .card {
+        width: calc(33.33% - 2%);
+        margin: 0 1%;
+    }
+}
+
+/* Tablet View: First Two Sections in One Row, Third in a New Row */
+@media (min-width: 768px) and (max-width: 991px) {
+    .card {
+        width: 48%;
+        float: left;
+        margin: 1%;
+    }
+    .card:nth-child(3) {
+        width: 98%;
+        clear: both;
+    }
+}
+
+/* Mobile View: Each Section Takes Full Width */
+@media (max-width: 767px) {
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
